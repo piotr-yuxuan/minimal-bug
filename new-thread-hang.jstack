@@ -1,0 +1,217 @@
+2020-07-23 00:55:04
+Full thread dump OpenJDK 64-Bit Server VM (14+36 mixed mode, sharing):
+
+Threads class SMR info:
+_java_thread_list=0x00007fdbf4cf2e80, length=15, elements={
+0x00007fdc75802000, 0x00007fdc76017000, 0x00007fdc76015000, 0x00007fdc75862800,
+0x00007fdc75860800, 0x00007fdc75861000, 0x00007fdc7512f800, 0x00007fdc76018000,
+0x00007fdc7513a800, 0x00007fdc5602c800, 0x00007fdc5602d800, 0x00007fdc560e8000,
+0x00007fdc76062000, 0x00007fdc76088000, 0x00007fdc558a0000
+}
+
+"main" #1 prio=5 os_prio=31 cpu=11501.34ms elapsed=45.31s tid=0x00007fdc75802000 nid=0x2703 waiting on condition  [0x000070000d41f000]
+   java.lang.Thread.State: WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@14/Native Method)
+	- parking to wait for  <0x000000060791e000> (a java.util.concurrent.FutureTask)
+	at java.util.concurrent.locks.LockSupport.park(java.base@14/LockSupport.java:211)
+	at java.util.concurrent.FutureTask.awaitDone(java.base@14/FutureTask.java:447)
+	at java.util.concurrent.FutureTask.get(java.base@14/FutureTask.java:190)
+	at clojure.core$deref_future.invokeStatic(core.clj:2300)
+	at clojure.core$deref.invokeStatic(core.clj:2320)
+	at clojure.core$deref.invoke(core.clj:2306)
+	at core$new_thread_hang.invokeStatic(core.clj:70)
+	at core$new_thread_hang.invoke(core.clj:67)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.core$apply.invokeStatic(core.clj:665)
+	at clojure.core$apply.invoke(core.clj:660)
+	at libpython_clj.python.object$make_tuple_fn$reify__30143.pyinvoke(object.clj:509)
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(java.base@14/DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(java.base@14/Method.java:564)
+	at com.sun.jna.CallbackReference$DefaultCallbackProxy.invokeCallback(CallbackReference.java:520)
+	at com.sun.jna.CallbackReference$DefaultCallbackProxy.callback(CallbackReference.java:551)
+	at libpython_clj.jna.DirectMapped.PyObject_CallObject(Native Method)
+	at libpython_clj.jna.protocols.object$PyObject_CallObject.invokeStatic(object.clj:305)
+	at libpython_clj.jna.protocols.object$PyObject_CallObject.invoke(object.clj:295)
+	at libpython_clj.python.object$eval30374$fn__30375.invoke(object.clj:837)
+	- locked <0x0000000605699f20> (a libpython_clj.python.interpreter.Interpreter)
+	at libpython_clj.python.protocols$eval25214$fn__25215$G__25205__25224.invoke(protocols.clj:105)
+	at libpython_clj.python.bridge$generic_python_as_jvm$reify__31259.do_call_fn(bridge.clj:675)
+	- locked <0x0000000605699f20> (a libpython_clj.python.interpreter.Interpreter)
+	at libpython_clj.python.protocols$call_attr_kw.invokeStatic(protocols.clj:132)
+	at libpython_clj.python.protocols$call_attr_kw.invoke(protocols.clj:127)
+	at core$attempt.invokeStatic(core.clj:134)
+	at core$attempt.invoke(core.clj:110)
+	at core$_main.invokeStatic(core.clj:138)
+	at core$_main.invoke(core.clj:136)
+	at clojure.lang.Var.invoke(Var.java:384)
+	at user$eval140.invokeStatic(form-init17546742258655296177.clj:1)
+	at user$eval140.invoke(form-init17546742258655296177.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:7177)
+	at clojure.lang.Compiler.eval(Compiler.java:7167)
+	at clojure.lang.Compiler.load(Compiler.java:7636)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7574)
+	at clojure.main$load_script.invokeStatic(main.clj:475)
+	at clojure.main$init_opt.invokeStatic(main.clj:477)
+	at clojure.main$init_opt.invoke(main.clj:477)
+	at clojure.main$initialize.invokeStatic(main.clj:508)
+	at clojure.main$null_opt.invokeStatic(main.clj:542)
+	at clojure.main$null_opt.invoke(main.clj:539)
+	at clojure.main$main.invokeStatic(main.clj:664)
+	at clojure.main$main.doInvoke(main.clj:616)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.lang.Var.applyTo(Var.java:705)
+	at clojure.main.main(main.java:40)
+
+"Reference Handler" #2 daemon prio=10 os_prio=31 cpu=0.87ms elapsed=45.30s tid=0x00007fdc76017000 nid=0x3703 waiting on condition  [0x000070000db38000]
+   java.lang.Thread.State: RUNNABLE
+	at java.lang.ref.Reference.waitForReferencePendingList(java.base@14/Native Method)
+	at java.lang.ref.Reference.processPendingReferences(java.base@14/Reference.java:241)
+	at java.lang.ref.Reference$ReferenceHandler.run(java.base@14/Reference.java:213)
+
+"Finalizer" #3 daemon prio=8 os_prio=31 cpu=0.53ms elapsed=45.30s tid=0x00007fdc76015000 nid=0x3903 in Object.wait()  [0x000070000dc3b000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(java.base@14/Native Method)
+	- waiting on <0x0000000600200af8> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(java.base@14/ReferenceQueue.java:155)
+	- locked <0x0000000600200af8> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(java.base@14/ReferenceQueue.java:176)
+	at java.lang.ref.Finalizer$FinalizerThread.run(java.base@14/Finalizer.java:170)
+
+"Signal Dispatcher" #4 daemon prio=9 os_prio=31 cpu=0.17ms elapsed=45.29s tid=0x00007fdc75862800 nid=0xa803 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Service Thread" #5 daemon prio=9 os_prio=31 cpu=2.01ms elapsed=45.29s tid=0x00007fdc75860800 nid=0x5803 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C1 CompilerThread0" #6 daemon prio=9 os_prio=31 cpu=921.90ms elapsed=45.29s tid=0x00007fdc75861000 nid=0x5a03 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+   No compile task
+
+"Sweeper thread" #10 daemon prio=9 os_prio=31 cpu=1.40ms elapsed=45.29s tid=0x00007fdc7512f800 nid=0x5b03 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Notification Thread" #11 daemon prio=9 os_prio=31 cpu=0.05ms elapsed=45.28s tid=0x00007fdc76018000 nid=0xa203 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Common-Cleaner" #12 daemon prio=8 os_prio=31 cpu=0.85ms elapsed=45.28s tid=0x00007fdc7513a800 nid=0xa103 in Object.wait()  [0x000070000e456000]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(java.base@14/Native Method)
+	- waiting on <0x0000000600201208> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(java.base@14/ReferenceQueue.java:155)
+	- locked <0x0000000600201208> (a java.lang.ref.ReferenceQueue$Lock)
+	at jdk.internal.ref.CleanerImpl.run(java.base@14/CleanerImpl.java:148)
+	at java.lang.Thread.run(java.base@14/Thread.java:832)
+	at jdk.internal.misc.InnocuousThread.run(java.base@14/InnocuousThread.java:134)
+
+"process reaper" #14 daemon prio=10 os_prio=31 cpu=0.84ms elapsed=34.79s tid=0x00007fdc5602c800 nid=0x9003 waiting on condition  [0x000070000dce5000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@14/Native Method)
+	- parking to wait for  <0x0000000605645998> (a java.util.concurrent.SynchronousQueue$TransferStack)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@14/LockSupport.java:252)
+	at java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(java.base@14/SynchronousQueue.java:462)
+	at java.util.concurrent.SynchronousQueue$TransferStack.transfer(java.base@14/SynchronousQueue.java:361)
+	at java.util.concurrent.SynchronousQueue.poll(java.base@14/SynchronousQueue.java:937)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(java.base@14/ThreadPoolExecutor.java:1055)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@14/ThreadPoolExecutor.java:1116)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@14/ThreadPoolExecutor.java:630)
+	at java.lang.Thread.run(java.base@14/Thread.java:832)
+
+"clojure-agent-send-off-pool-0" #15 prio=5 os_prio=31 cpu=1.34ms elapsed=34.79s tid=0x00007fdc5602d800 nid=0x8e03 waiting on condition  [0x000070000f07a000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@14/Native Method)
+	- parking to wait for  <0x0000000600a2aa68> (a java.util.concurrent.SynchronousQueue$TransferStack)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@14/LockSupport.java:252)
+	at java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(java.base@14/SynchronousQueue.java:462)
+	at java.util.concurrent.SynchronousQueue$TransferStack.transfer(java.base@14/SynchronousQueue.java:361)
+	at java.util.concurrent.SynchronousQueue.poll(java.base@14/SynchronousQueue.java:937)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(java.base@14/ThreadPoolExecutor.java:1055)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@14/ThreadPoolExecutor.java:1116)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@14/ThreadPoolExecutor.java:630)
+	at java.lang.Thread.run(java.base@14/Thread.java:832)
+
+"clojure-agent-send-off-pool-1" #16 prio=5 os_prio=31 cpu=0.93ms elapsed=34.79s tid=0x00007fdc560e8000 nid=0x6803 waiting on condition  [0x000070000f17d000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@14/Native Method)
+	- parking to wait for  <0x0000000600a2aa68> (a java.util.concurrent.SynchronousQueue$TransferStack)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@14/LockSupport.java:252)
+	at java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(java.base@14/SynchronousQueue.java:462)
+	at java.util.concurrent.SynchronousQueue$TransferStack.transfer(java.base@14/SynchronousQueue.java:361)
+	at java.util.concurrent.SynchronousQueue.poll(java.base@14/SynchronousQueue.java:937)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(java.base@14/ThreadPoolExecutor.java:1055)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@14/ThreadPoolExecutor.java:1116)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@14/ThreadPoolExecutor.java:630)
+	at java.lang.Thread.run(java.base@14/Thread.java:832)
+
+"tech.resource.gc ref thread" #17 daemon prio=5 os_prio=31 cpu=21.52ms elapsed=34.67s tid=0x00007fdc76062000 nid=0x6a03 in Object.wait()  [0x000070000f280000]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(java.base@14/Native Method)
+	- waiting on <no object reference available>
+	at java.lang.ref.ReferenceQueue.remove(java.base@14/ReferenceQueue.java:155)
+	- locked <0x00000006005de1f0> (a java.lang.ref.ReferenceQueue$Lock)
+	at tech.resource.gc$watch_reference_queue$fn__767.invoke(gc.clj:28)
+	at tech.resource.gc$watch_reference_queue.invokeStatic(gc.clj:24)
+	at tech.resource.gc$watch_reference_queue.invoke(gc.clj:22)
+	at tech.resource.gc$start_reference_thread$fn__779.invoke(gc.clj:48)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at java.lang.Thread.run(java.base@14/Thread.java:832)
+
+"pool-1-thread-1" #18 prio=5 os_prio=31 cpu=1.36ms elapsed=33.32s tid=0x00007fdc76088000 nid=0x8803 waiting for monitor entry  [0x000070000f383000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at libpython_clj.python.object$eval29973$fn__29974.invoke(object.clj:233)
+	- waiting to lock <0x0000000605699f20> (a libpython_clj.python.interpreter.Interpreter)
+	at libpython_clj.python.protocols$eval24893$fn__24894$G__24884__24899.invoke(protocols.clj:21)
+	at libpython_clj.python.protocols$python_type.invokeStatic(protocols.clj:30)
+	at libpython_clj.python.protocols$python_type.invoke(protocols.clj:26)
+	at libpython_clj.python.bridge$as_jvm.invokeStatic(bridge.clj:112)
+	at libpython_clj.python.bridge$as_jvm.doInvoke(bridge.clj:104)
+	at clojure.lang.RestFn.invoke(RestFn.java:410)
+	at core$thunk_fn$fn__35476.invoke(core.clj:19)
+	at core$new_thread_hang$hung_thunk__35484.invoke(core.clj:76)
+	at clojure.lang.AFn.call(AFn.java:18)
+	at java.util.concurrent.FutureTask.run(java.base@14/FutureTask.java:264)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@14/ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@14/ThreadPoolExecutor.java:630)
+	at java.lang.Thread.run(java.base@14/Thread.java:832)
+
+"Attach Listener" #19 daemon prio=9 os_prio=31 cpu=0.86ms elapsed=29.61s tid=0x00007fdc558a0000 nid=0x8603 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"VM Thread" os_prio=31 cpu=51.66ms elapsed=45.30s tid=0x00007fdc7512e800 nid=0x3403 runnable  
+
+"GC Thread#0" os_prio=31 cpu=77.94ms elapsed=45.31s tid=0x00007fdc75804800 nid=0x4d03 runnable  
+
+"GC Thread#1" os_prio=31 cpu=63.42ms elapsed=44.94s tid=0x00007fdc752d5000 nid=0x9f03 runnable  
+
+"GC Thread#2" os_prio=31 cpu=68.07ms elapsed=44.94s tid=0x00007fdc7527f800 nid=0x6003 runnable  
+
+"GC Thread#3" os_prio=31 cpu=70.93ms elapsed=44.94s tid=0x00007fdc75280800 nid=0x9c03 runnable  
+
+"GC Thread#4" os_prio=31 cpu=66.17ms elapsed=44.94s tid=0x00007fdc75281000 nid=0x9b03 runnable  
+
+"GC Thread#5" os_prio=31 cpu=91.13ms elapsed=44.94s tid=0x00007fdc75282000 nid=0x9a03 runnable  
+
+"GC Thread#6" os_prio=31 cpu=79.73ms elapsed=44.94s tid=0x00007fdc75282800 nid=0x9803 runnable  
+
+"GC Thread#7" os_prio=31 cpu=78.82ms elapsed=44.94s tid=0x00007fdc57813800 nid=0x9703 runnable  
+
+"GC Thread#8" os_prio=31 cpu=53.21ms elapsed=44.94s tid=0x00007fdc57815800 nid=0x6403 runnable  
+
+"GC Thread#9" os_prio=31 cpu=70.47ms elapsed=44.94s tid=0x00007fdc57816800 nid=0x9503 runnable  
+
+"G1 Main Marker" os_prio=31 cpu=1.29ms elapsed=45.31s tid=0x00007fdc75017800 nid=0x3003 runnable  
+
+"G1 Conc#0" os_prio=31 cpu=46.90ms elapsed=45.31s tid=0x00007fdc75018000 nid=0x4903 runnable  
+
+"G1 Conc#1" os_prio=31 cpu=51.47ms elapsed=43.76s tid=0x00007fdc75469800 nid=0x9303 runnable  
+
+"G1 Conc#2" os_prio=31 cpu=51.90ms elapsed=43.76s tid=0x00007fdc758b9800 nid=0x9103 runnable  
+
+"G1 Refine#0" os_prio=31 cpu=0.09ms elapsed=45.31s tid=0x00007fdc55012000 nid=0x3203 runnable  
+
+"G1 Young RemSet Sampling" os_prio=31 cpu=7.15ms elapsed=45.31s tid=0x00007fdc7512e000 nid=0x4703 runnable  
+"VM Periodic Task Thread" os_prio=31 cpu=22.74ms elapsed=45.28s tid=0x00007fdc57002800 nid=0x5d03 waiting on condition  
+
+JNI global refs: 38, weak refs: 85
+

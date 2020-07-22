@@ -71,7 +71,7 @@
       (.submit
         pool
         ^Callable
-        (fn []
+        (fn hung-thunk []
           (try
             (thunk)
             (catch Throwable x
