@@ -96,6 +96,17 @@
         (println "Throwable!")
         x))))
 
+(defn vanilla-thread-no-fail
+  [f]
+  (.run
+    (Thread.
+      (fn []
+        (try
+          (println ((py/as-jvm f)))
+          (catch Throwable x
+            (println "Throwable!" x)
+            x))))))
+
 (defn attempt
   [mode]
   (py/set-attrs!
@@ -115,8 +126,11 @@
                          (= "same-thread-no-fail" mode)
                          (py/make-tuple-instance-fn same-thread-no-fail)
 
-                         (= "simple-thread-think-no-fail")
-                         (py/make-tuple-instance-fn simple-thread-think-no-fail))]])
+                         (= "simple-thread-think-no-fail" mode)
+                         (py/make-tuple-instance-fn simple-thread-think-no-fail)
+
+                         (= "vanilla-thread-no-fail" mode)
+                         (py/make-tuple-instance-fn vanilla-thread-no-fail))]])
   (py/py.. (py/import-module "MinimalBug") (call_me_baby)))
 
 (defn -main

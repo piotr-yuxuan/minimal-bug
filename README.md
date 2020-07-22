@@ -112,6 +112,16 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 before in thunk
 Hello, world!
 after in thunk
+
+$ lein run vanilla-thread-no-fail
+OpenJDK 64-Bit Server VM warning: Options -Xverify:none and -noverify were deprecated in JDK 13 and will likely be removed in a future release.
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+before in thunk
+ALL YOUR BASE ARE BELONG TO US
+Python after
+after in thunk
 ```
 
 Running the same test suite from a REPL gives similar results. The
@@ -245,5 +255,13 @@ after in thunk
 before in thunk
 Hello, world!
 after in thunk
+=> nil
+```
+
+```
+(attempt "vanilla-thread-no-fail")
+ALL YOUR BASE ARE BELONG TO US
+Python after
+yay
 => nil
 ```
